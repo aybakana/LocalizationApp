@@ -1,0 +1,80 @@
+﻿@using System.Globalization
+@using LocalizationApp
+@using Microsoft.Extensions.Localization
+
+@{
+    // Get culture from route, NOT from CultureInfo.CurrentCulture
+    var currentCulture = (string)ViewContext.RouteData.Values["culture"] ?? "en";
+    var cultureInfo = new CultureInfo(currentCulture);
+}
+
+<!DOCTYPE html>
+<html lang="@cultureInfo.Name">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LocalizationApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="/@currentCulture/Home">LocalizationApp</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/@currentCulture/home">@Localizer["Home"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/@currentCulture/about">@Localizer["About"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/@currentCulture/contact">@Localizer["Contact"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/@currentCulture/privacy">@Localizer["Privacy"]</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @cultureInfo.DisplayName
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="@Context.ChangeCulture("en")">English</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Context.ChangeCulture("de")">Deutsch</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Context.ChangeCulture("tr")">Türkçe</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - LocalizationApp -
+            <a href="/@currentCulture/privacy">@Localizer["Privacy"]</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

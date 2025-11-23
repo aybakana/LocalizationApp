@@ -1,0 +1,15 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
+    var currentCulture = (string)ViewContext.RouteData.Values["culture"] ?? "en";
+    var cultureInfo = new CultureInfo(currentCulture);
+    ViewData["Title"] = Localizer["Welcome"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Localizer["Welcome"]</h1>
+    <p>Current Culture: @System.Globalization.CultureInfo.CurrentCulture.Name</p>
+    <p>Current UI Culture: @System.Globalization.CultureInfo.CurrentUICulture.Name</p>
+</div>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Home" xml:space="preserve">
+    <value>Startseite</value>
+  </data>
+	<data name="About" xml:space="preserve">
+    <value>Über uns</value>
+  </data>
+	<data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+	<data name="Privacy" xml:space="preserve">
+    <value>Datenschutz</value>
+  </data>
+</root>

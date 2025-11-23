@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Home" xml:space="preserve">
+    <value>Ana Sayfa</value>
+  </data>
+	<data name="About" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
+	<data name="Contact" xml:space="preserve">
+    <value>İletişim</value>
+  </data>
+	<data name="Privacy" xml:space="preserve">
+    <value>Gizlilik</value>
+  </data>
+</root>

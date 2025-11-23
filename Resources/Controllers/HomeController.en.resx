@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Welcome" xml:space="preserve">
+    <value>Welcome to our application!</value>
+  </data>
+	<data name="AboutDescription" xml:space="preserve">
+    <value>Your application description page.</value>
+  </data>
+	<data name="ContactDescription" xml:space="preserve">
+    <value>Your contact page.</value>
+  </data>
+</root>
